@@ -1,0 +1,6 @@
+Flask
+gunicorn
+werkzeug
+itsdangerous
+psycopg2-binary
+stripe
