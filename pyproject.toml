@@ -4,4 +4,10 @@ version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "flask>=3.1.1",
+    "itsdangerous>=2.2.0",
+    "psycopg2-binary>=2.9.10",
+    "stripe>=12.3.0",
+    "werkzeug>=3.1.3",
+]

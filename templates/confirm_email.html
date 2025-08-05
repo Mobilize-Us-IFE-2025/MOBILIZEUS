@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Confirm Your Email{% endblock %}
+{% block content %}
+<h1>Email Confirmation</h1>
+<p>Click the link below to verify your email:</p>
+<a href="{{ url_for('verify_email', token=token) }}">Verify My Email</a>
+{% endblock %}

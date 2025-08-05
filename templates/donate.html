@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Donate{% endblock %}
+{% block content %}
+<h1>Donate a Prosthetic</h1>
+<form method="POST">
+    <label for="name">Your Name:</label><br>
+    <input type="text" name="name" required><br>
+
+    <label for="limb">Enter Limb:</label><br>
+    <input type="text" name="limb" required><br>
+    <label for="length">Enter length in cm:</label><br>
+    <input type="number" name="length" required><br>
+    <label for="width">Enter width in cm:</label><br>
+    <input type="number" name="width" required><br>
+    <label for="reason"> Enter reason for loss of limb:</label>
+    <input type="text" name="reason" required><br>
+    <label for="description">Describe the prosthetic and any other info you'd like to share:</label>
+    <textarea name="description" rows="4" cols="50" placeholder="e.g. Condition, your contact info, pickup location, etc."></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

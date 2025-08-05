@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1>Welcome to Mobilize Us</h1> 
+<p> Please Register before you Login</p>
+<img src="{{ url_for('static', filename='prosthetic.jpg') }}" alt="Prosthetic Image"> </img>
+<p>Connecting donors with those in need.</p>
+<p> Total registered users:
+ {{accounts_counter}}</p>
+
+{% endblock %}

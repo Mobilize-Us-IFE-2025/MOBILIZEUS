@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Messages{% endblock %}
+
+{% block content %}
+<h2>Community Messages</h2>
+ 
+<form method="POST">
+    <textarea name="message" placeholder="Share a message..." required></textarea><br>
+    <button type="submit">Post</button>
+</form>
+
+<hr>
+
+{% for msg_id, msg, email, user_id in messages %}
+    <div style="margin-bottom: 1em;">
+        <strong>{{ email }}</strong><br>
+        <p>{{ msg }}</p>
+
+        {% if session["user_id"] == user_id %}
+        <form method="POST" style="display:inline;">
+            <input type="hidden" name="delete_id" value="{{ msg_id }}">
+            <button type="submit" style="color:red;">Delete</button>
+        </form>
+        {% endif %}
+    </div>
+{% endfor %}
+{% endblock %}

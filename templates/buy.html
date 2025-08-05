@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Buy Prosthetic{% endblock %}
+{% block content %}
+<h2>Available Prosthetics</h2>
+<p>P.S. You are not able to actually buy the prosthetics yet</p>
+<p>It is a WIP</p>
+{% for d in donations %}
+    <div style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+        <p><strong>Limb:</strong> {{ d[1] }}</p>
+        <p><strong>Width:</strong> {{ d[2] }} cm</p>
+        <p><strong>Length:</strong> {{ d[3] }} cm</p>
+        <p><strong>Reason:</strong> {{ d[4] }}</p>
+        <p><strong>Donated by User:</strong> {{ d[5] }}</p>
+        <p><strong>Description:</strong> {{ d[7] }}</p>
+        <form method="POST" action="{{ url_for('checkout') }}">
+            <input type="hidden" name="donation_id" value="{{ d[6] }}">
+            <input type="hidden" name="price" value="{{ final_price }}">
+            <input type="hidden" name="discount" value="{{ discount }}">
+{% if d[6] != session["user_id"] %}}
+            <button type="submit">Buy This Prosthetic</button>
+        </form>
+{% elif d[6] == session["user_id"] %}
+    <form method="POST" style="display:inline;">
+        <input type="hidden" name="delete_id" value="{{ d[0] }}">
+        <button type="submit" style="color:red;">Delete</button>
+    </form>
+    </div>
+{% endif %}
+{% else %}
+    <p>No prosthetics available for purchase.</p>
+{% endfor %}
+
+{% endblock %}
